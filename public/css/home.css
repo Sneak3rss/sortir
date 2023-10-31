@@ -9,6 +9,34 @@
     scroll-behavior: smooth;
 }
 
+header
+{
+    padding: 20px;
+}
+
+header navbar
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+header navbar .menu ul
+{
+    display: flex;
+    list-style-type: none;
+}
+
+header navbar .menu ul li a
+{
+    display: flex;
+    padding: 0 15px 0 15px;
+}
+
+.filtres_accueil .filtres
+{
+    display: flex;
+}
+
 
 table{
     border-collapse: collapse

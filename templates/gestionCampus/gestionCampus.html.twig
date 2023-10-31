@@ -3,6 +3,70 @@
 {% block title %}{{ parent() }}{% endblock %}
 
 {% block body %}
+    <header>
+        <navbar>
+            <div class="logo">
+                <h3>Logo Sortir.com</h3>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="">Accueil</a></li>
+                    <li><a href="">Mon profil</a></li>
+                    <li><a href="">Se déconnecter</a></li>
+                </ul>
+            </div>
+        </navbar>
+    </header>
+
+    <main>
+        <div class="logo_gestionCampus">
+            <h3>Gérer les campus</h3>
+        </div>
+
+        <section class="filtres_gestionCampus">
+            <div class="title_filtre_gestionCampus">
+                <h4><strong>Filtrer les sites</strong></h4>
+            </div>
+
+            <div class="form_gestionCampus">
+                <div class="form1_gestionCampus">
+                    <label for="">Le nom contient : </label>
+                </div>
+                <div class="button_gestionCampus">
+                    <button>Rechercher</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="tableau_gestionCampus">
+            <table>
+                <tr>
+                    <th>Campus</th>
+                    <th>Actions</th>
+                </tr>
+
+                <tr>
+                    <td>SAINT-HERBLAIN</td>
+                    <td>
+                        <a href="">Modifier</a> -
+                        <a href="">Supprimer</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <form>
+                        <td>
+                            <input type="text">
+
+                        </td>
+                        <td>
+                            <input type="submit">
+                        </td>
+                    </form>
+                </tr>
+            </table>
+        </section>
+    </main>
 
 {% endblock %}
 

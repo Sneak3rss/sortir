@@ -8,3 +8,15 @@
     font-family: 'Poppins',sans-serif;
     scroll-behavior: smooth;
 }
+
+
+table{
+    border-collapse: collapse;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+td{
+    border: 1px solid black;
+    padding: 10px;
+}

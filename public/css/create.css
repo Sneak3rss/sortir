@@ -8,3 +8,7 @@
     font-family: 'Poppins',sans-serif;
     scroll-behavior: smooth;
 }
+
+textarea {
+    resize: none; /* Disables resizability */
+}
