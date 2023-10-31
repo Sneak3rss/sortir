@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent () }}{% endblock %}
+
+{% block body %}
+    <header>
+        <navbar>
+            <div class="logo">
+                <h3>Logo Sortir.com</h3>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="">Villes</a></li>
+                    <li><a href="">Campus</a></li>
+                    <li><a href="">Accueil</a></li>
+                    <li><a href="">Mon profil</a></li>
+                    <li><a href="">Se déconnecter</a></li>
+                </ul>
+            </div>
+        </navbar>
+    </header>
+
+    <main>
+        <section class="filtres_accueil">
+            <div class="title_accueil">
+                <h3>Filtrer les sorties</h3>
+            </div>
+            <div class="filtres">
+                <div class="prFiltres">
+                    <form action="" method="">
+                        <label for="">Campus</label>
+                        <select name="campus" id="campus-select">
+                            <option value="">--Choisi un campus--</option>
+                            <option value="rennes">Rennes</option>
+                            <option value="nantes">Nantes</option>
+                            <option value="Quimper">Quimper</option>
+                        </select>
+                        <label for="">Le nom de la sortie contient :</label>
+                        <input type="search" placeholder="search">
+                        <div class="calendrier">
+                            <label for="">Entre</label>
+                            <input type="date">
+                            <label for="">et</label>
+                            <input type="date">
+                        </div>
+                    </form>
+                </div>
+                <div class="dxFiltres">
+                    <input type="checkbox"><label for="">Sorties dont je suis l'organisateur/trice</label>
+                    <input type="checkbox"><label for="">Sorties auxquelles je suis insrcit/e</label>
+                    <input type="checkbox"><label for="">Sorties auxquelles je ne suis pas inscrit/e</label>
+                    <input type="checkbox"><label for="">Sorties passées</label>
+                </div>
+                <div class="displayResearch">
+                    <button>Rechercher</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="tableau_accueil">
+            <table>
+                <tr>
+                    <td>Nom de la sortie</td>
+                    <td>Date de la sortie</td>
+                    <td>Clotûre</td>
+                    <td>inscrits/places</td>
+                    <td>Etat</td>
+                    <td>Inscrit</td>
+                    <td>Organisateur</td>
+                    <td>Actions</td>
+                </tr>
+                <tr>
+                    <td>Philo</td>
+                    <td>19/07/2018 23:45</td>
+                    <td>19/07/2018</td>
+                    <td>8/8</td>
+                    <td>En cours</td>
+                    <td>X</td>
+                    <td><a href="">Spinoz A</a></td>
+                    <td><a href="">Afficher</a></td>
+                </tr>
+            </table>
+        </section>
+
+        <section class="button_accueil">
+            <button>Crée une sortie</button>
+        </section>
+    </main>
+{% endblock %}
+
+{% block stylesheets %}<link rel="stylesheet" type="text/css" href="{{ asset('css/home.css') }}"{% endblock %}

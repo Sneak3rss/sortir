@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent () }}{% endblock %}
+
+{% block body %}
+    <header>
+        <navbar>
+            <div class="logo">
+                <h3>Logo Sortir.com</h3>
+            </div>
+        </navbar>
+    </header>
+
+    <main>
+        <form action="" method="GET">
+            <div class="identifiant">
+                <label for="pseudo">Identifiant :</label>
+                <input type="text" id="pseudo" name="pseudo" required>
+            </div>
+            <br>
+            <div class="password">
+                <label for="mp">Mot de Passe :</label>
+                <input type="text" id="mp" name="mp" required>
+            </div>
+            <br>
+
+            <div class="bottom_form">
+                <div class="button_form">
+                    <button href="{{ asset ('home/home.html.twig') }}">Connexion</button>
+                </div>
+                <div class="reminder_form">
+                    <div class="check_reminder">
+                        <input type="checkbox" id="reminder" name="reminder">
+                        <label for="reminder">Se souvenir de moi</label>
+                    </div>
+                    <div class="mp_reminder">
+                        <a href="#">Mot de passe oublié</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </main>
+{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+{% endblock %}
