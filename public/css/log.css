@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-
+/*
 *
 {
     margin: 0;
@@ -9,12 +9,22 @@
     scroll-behavior: smooth;
 }
 
-
-table{
-    border-collapse: collapse
+header
+{
+    padding: 20px;
 }
 
-td{
-    border: 1px solid black;
-    padding: 10px;
+main
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
 }
+
+.bottom_form
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}*/
