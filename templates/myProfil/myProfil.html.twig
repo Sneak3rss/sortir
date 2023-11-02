@@ -1,9 +1,26 @@
 {% extends 'base.html.twig' %}
+{% block truc %}
+<header>
 
-{% block title %}{{ parent() }}{% endblock %}
+        <div class="logo">
+            <h3>Logo Sortir.com</h3>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="">Accueil</a></li>
+                <li><a href="">Mon profil</a></li>
+                <li><a href="">Se déconnecter</a></li>
+            </ul>
+        </div>
 
+</header>
+{% endblock %}
 {% block body %}
 
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <input type="submit" value="Enregistrer">
+    {{ form_end(form) }}
 {% endblock %}
 
 {% block stylesheets %}

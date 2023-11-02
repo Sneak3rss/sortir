@@ -1,0 +1,2 @@
+#commande pour mimettre a jour la base de donner pour les entité
+symfony console d:s:u -f
