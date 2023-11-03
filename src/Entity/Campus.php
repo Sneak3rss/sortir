@@ -3,11 +3,11 @@
 namespace App\Entity;
 
 use App\Repository\CampusRepository;
-<<<<<<< HEAD
-=======
+
+
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
->>>>>>> origin/master
+
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CampusRepository::class)]
@@ -18,10 +18,10 @@ class Campus
     #[ORM\Column]
     private ?int $id = null;
 
-<<<<<<< HEAD
+
     #[ORM\Column(length: 50)]
     private ?string $nom = null;
-=======
+
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
@@ -36,14 +36,14 @@ class Campus
         $this->sorties = new ArrayCollection();
         $this->participants = new ArrayCollection();
     }
->>>>>>> origin/master
+
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-<<<<<<< HEAD
+
     public function getNom(): ?string
     {
         return $this->nom;
@@ -52,77 +52,84 @@ class Campus
     public function setNom(string $nom): static
     {
         $this->nom = $nom;
-=======
-    public function getName(): ?string
-    {
-        return $this->name;
+
     }
-
-    public function setName(string $name): static
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Sortie>
-     */
-    public function getSorties(): Collection
-    {
-        return $this->sorties;
-    }
-
-    public function addSorty(Sortie $sorty): static
-    {
-        if (!$this->sorties->contains($sorty)) {
-            $this->sorties->add($sorty);
-            $sorty->setCampus($this);
+        public function getName(): ?string
+        {
+            return $this->name;
         }
 
-        return $this;
-    }
+        public       function setName(string $name): static
+        {
+            $this->name = $name;
 
-    public function removeSorty(Sortie $sorty): static
-    {
-        if ($this->sorties->removeElement($sorty)) {
-            // set the owning side to null (unless already changed)
-            if ($sorty->getCampus() === $this) {
-                $sorty->setCampus(null);
+            return $this;
+        }
+
+        /**
+         * @return Collection<int, Sortie>
+         */
+        public
+        function getSorties(): Collection
+        {
+            return $this->sorties;
+        }
+
+        public
+        function addSorty(Sortie $sorty): static
+        {
+            if (!$this->sorties->contains($sorty)) {
+                $this->sorties->add($sorty);
+                $sorty->setCampus($this);
             }
+
+            return $this;
         }
 
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Participant>
-     */
-    public function getParticipants(): Collection
-    {
-        return $this->participants;
-    }
-
-    public function addParticipant(Participant $participant): static
-    {
-        if (!$this->participants->contains($participant)) {
-            $this->participants->add($participant);
-            $participant->setCampus($this);
-        }
-
-        return $this;
-    }
-
-    public function removeParticipant(Participant $participant): static
-    {
-        if ($this->participants->removeElement($participant)) {
-            // set the owning side to null (unless already changed)
-            if ($participant->getCampus() === $this) {
-                $participant->setCampus(null);
+        public
+        function removeSorty(Sortie $sorty): static
+        {
+            if ($this->sorties->removeElement($sorty)) {
+                // set the owning side to null (unless already changed)
+                if ($sorty->getCampus() === $this) {
+                    $sorty->setCampus(null);
+                }
             }
-        }
->>>>>>> origin/master
 
-        return $this;
+            return $this;
+        }
+
+        /**
+         * @return Collection<int, Participant>
+         */
+        public
+        function getParticipants(): Collection
+        {
+            return $this->participants;
+        }
+
+        public
+        function addParticipant(Participant $participant): static
+        {
+            if (!$this->participants->contains($participant)) {
+                $this->participants->add($participant);
+                $participant->setCampus($this);
+            }
+
+            return $this;
+        }
+
+        public
+        function removeParticipant(Participant $participant): static
+        {
+            if ($this->participants->removeElement($participant)) {
+                // set the owning side to null (unless already changed)
+                if ($participant->getCampus() === $this) {
+                    $participant->setCampus(null);
+                }
+            }
+
+
+            return $this;
+        }
     }
-}
