@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ParticipantRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -37,6 +39,21 @@ class Participant implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 10)]
     private ?string $phone = null;
+
+    #[ORM\ManyToOne(inversedBy: 'participants')]
+    private ?Campus $campus = null;
+
+    #[ORM\OneToMany(mappedBy: 'organisateur', targetEntity: Sortie::class)]
+    private Collection $sorties;
+
+    #[ORM\ManyToMany(targetEntity: Sortie::class, mappedBy: 'participant')]
+    private Collection $sorties_inscrit;
+
+    public function __construct()
+    {
+        $this->sorties = new ArrayCollection();
+        $this->no = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -140,6 +157,75 @@ class Participant implements UserInterface, PasswordAuthenticatedUserInterface
     public function setPhone(string $phone): static
     {
         $this->phone = $phone;
+
+        return $this;
+    }
+
+    public function getCampus(): ?Campus
+    {
+        return $this->campus;
+    }
+
+    public function setCampus(?Campus $campus): static
+    {
+        $this->campus = $campus;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Sortie>
+     */
+    public function getSorties(): Collection
+    {
+        return $this->sorties;
+    }
+
+    public function addSorty(Sortie $sorty): static
+    {
+        if (!$this->sorties->contains($sorty)) {
+            $this->sorties->add($sorty);
+            $sorty->setOrganisateur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSorty(Sortie $sorty): static
+    {
+        if ($this->sorties->removeElement($sorty)) {
+            // set the owning side to null (unless already changed)
+            if ($sorty->getOrganisateur() === $this) {
+                $sorty->setOrganisateur(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Sortie>
+     */
+    public function sorties_get(): Collection
+    {
+        return $this->sorties_inscrit;
+    }
+
+    public function sorties_add(Sortie $sorties_inscrit): static
+    {
+        if (!$this->no->contains($sorties_inscrit)) {
+            $this->no->add($sorties_inscrit);
+            $sorties_inscrit->addParticipant($this);
+        }
+
+        return $this;
+    }
+
+    public function remove_sorties(Sortie $sorties_inscrit): static
+    {
+        if ($this->sorties_inscrit->removeElement($sorties_inscrit)) {
+            $sorties_inscrit->removeParticipant($this);
+        }
 
         return $this;
     }
