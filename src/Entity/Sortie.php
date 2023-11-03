@@ -49,6 +49,9 @@ class Sortie
     #[ORM\ManyToOne(inversedBy: 'sorties')]
     private ?Lieu $lieu = null;
 
+    #[ORM\ManyToOne(inversedBy: 'sorties')]
+    private ?Etat $etat = null;
+
     public function __construct()
     {
         $this->participant = new ArrayCollection();
@@ -199,6 +202,18 @@ class Sortie
     public function setLieu(?Lieu $lieu): static
     {
         $this->lieu = $lieu;
+
+        return $this;
+    }
+
+    public function getEtat(): ?Etat
+    {
+        return $this->etat;
+    }
+
+    public function setEtat(?Etat $etat): static
+    {
+        $this->etat = $etat;
 
         return $this;
     }
