@@ -46,6 +46,9 @@ class Sortie
     #[ORM\ManyToMany(targetEntity: Participant::class, inversedBy: 'no')]
     private Collection $participant;
 
+    #[ORM\ManyToOne(inversedBy: 'sorties')]
+    private ?Lieu $lieu = null;
+
     public function __construct()
     {
         $this->participant = new ArrayCollection();
@@ -184,6 +187,18 @@ class Sortie
     public function removeParticipant(Participant $participant): static
     {
         $this->participant->removeElement($participant);
+
+        return $this;
+    }
+
+    public function getLieu(): ?Lieu
+    {
+        return $this->lieu;
+    }
+
+    public function setLieu(?Lieu $lieu): static
+    {
+        $this->lieu = $lieu;
 
         return $this;
     }
