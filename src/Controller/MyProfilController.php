@@ -13,8 +13,8 @@ class MyProfilController extends AbstractController
     #[Route('/myProfil')]
     public function myProfil(): Response
     {
-        $user = new User();
-        $form = $this->createForm(MyProfilType::class, $user);
+
+        $form = $this->createForm(MyProfilType::class);
 
         return $this->render('myProfil/myProfil.html.twig', [
             'form'=> $form
