@@ -39,8 +39,13 @@ class Participant implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $phone = null;
 
     #[ORM\ManyToOne]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn()]
     private ?Campus $campus = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $pseudo = null;
+
+
 
 
     public function getId(): ?int
@@ -160,5 +165,18 @@ class Participant implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+    public function getPseudo(): ?string
+    {
+        return $this->pseudo;
+    }
+
+    public function setPseudo(string $pseudo): static
+    {
+        $this->pseudo = $pseudo;
+
+        return $this;
+    }
+
 
 }
