@@ -3,8 +3,11 @@
 namespace App\Entity;
 
 use App\Repository\CampusRepository;
+
+
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CampusRepository::class)]
@@ -14,6 +17,10 @@ class Campus
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
+
+
+    #[ORM\Column(length: 50)]
+    private ?string $nom = null;
 
     #[ORM\Column(length: 255)]
     private ?string $name = null;
@@ -30,15 +37,28 @@ class Campus
         $this->participants = new ArrayCollection();
     }
 
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getName(): ?string
+
+    public function getNom(): ?string
     {
-        return $this->name;
+        return $this->nom;
     }
+
+    public function setNom(string $nom): static
+    {
+        $this->nom = $nom;
+        return  $this;
+
+    }
+        public function getName(): ?string
+        {
+            return $this->name;
+        }
 
     public function setName(string $name): static
     {
@@ -50,12 +70,14 @@ class Campus
     /**
      * @return Collection<int, Sortie>
      */
-    public function getSorties(): Collection
+    public
+    function getSorties(): Collection
     {
         return $this->sorties;
     }
 
-    public function addSorty(Sortie $sorty): static
+    public
+    function addSorty(Sortie $sorty): static
     {
         if (!$this->sorties->contains($sorty)) {
             $this->sorties->add($sorty);
@@ -65,7 +87,8 @@ class Campus
         return $this;
     }
 
-    public function removeSorty(Sortie $sorty): static
+    public
+    function removeSorty(Sortie $sorty): static
     {
         if ($this->sorties->removeElement($sorty)) {
             // set the owning side to null (unless already changed)
@@ -80,12 +103,14 @@ class Campus
     /**
      * @return Collection<int, Participant>
      */
-    public function getParticipants(): Collection
+    public
+    function getParticipants(): Collection
     {
         return $this->participants;
     }
 
-    public function addParticipant(Participant $participant): static
+    public
+    function addParticipant(Participant $participant): static
     {
         if (!$this->participants->contains($participant)) {
             $this->participants->add($participant);
@@ -95,7 +120,8 @@ class Campus
         return $this;
     }
 
-    public function removeParticipant(Participant $participant): static
+    public
+    function removeParticipant(Participant $participant): static
     {
         if ($this->participants->removeElement($participant)) {
             // set the owning side to null (unless already changed)
@@ -103,6 +129,7 @@ class Campus
                 $participant->setCampus(null);
             }
         }
+
 
         return $this;
     }
