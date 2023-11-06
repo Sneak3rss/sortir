@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MyProfilController extends AbstractController
 {
-    #[Route('/myProfil', methods: ['GET', 'POST'])]
+    #[Route('/myProfil',name: 'app_myprofil', methods: ['GET', 'POST'])]
     public function myProfil(Request $request, EntityManagerInterface $em, UserPasswordHasherInterface $userPasswordHasher): Response
     {
         $user = $this->getUser(); // Obtenir l'utilisateur actuel
