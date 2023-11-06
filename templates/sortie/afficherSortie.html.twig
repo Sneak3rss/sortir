@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block head %}
+
+    {% block title %}{{ parent () }} | Afficher Sortie{% endblock %}
+    {% block stylesheets %}<link rel="stylesheet" type="text/css" href="{{ asset ('css/afficherSortie.css') }}" {% endblock %}
+
+{% endblock %}
+
+{% block body %}
+    {% block header %}
+        <header>
+            <div class="navbar">
+                <div class="logo">
+                    <h2>Logo Sortir.com</h2>
+                </div>
+                <div class="menu">
+                    <a class="text-decoration-none"  href="{{ url('app_home') }}">Accueil</a>
+                    <a class="text-decoration-none" href="{{ url('app_myprofil') }}">Mon Profil</a>
+                    <a class="text-decoration-none" href="{{ url('app_logout') }}">Se déconnecter</a>
+                </div>
+            </div>
+        </header>
+    {% endblock %}
+
+    {% block main %}
+        <main>
+            <div class="title_afficherSortie">
+                <h3>Afficher une sortie</h3>
+            </div>
+            <div class="form_afficherSortie">
+                <div class="form_left_afficherSortie">
+                    <div class="nom_sortie">
+                        <label for="nom-de-sortie">Nom de la sortie :</label>
+                        <input type="text" id="nom-de-sortie" name="nom_nom"  value="{{ sortie.nom }}" readonly>
+                    </div>
+
+                    <div class="dateh_sortie">
+                         <label for="date-heure">Date et heure de la sortie :</label>
+                         <input type="date" id="date-heure" name="date-heure"  value="{{ sortie.dateHeureDebut | date('Y-m-d') }}" readonly>
+                    </div>
+
+                    <div class="datel_sortie">
+                           <label for="date-limite">Date limite d'inscription :</label>
+                           <input type="date" id="date-inscription" name="date-inscription" value="{{ sortie.dateLimInscription | date('Y-m-d') }}"  readonly>
+                    </div>
+
+                    <div class="duree_sortie">
+                        <label for="duree">Durée :</label>
+                        <input type="number" id="duree" name="duree" value="{{ sortie.duree }}"  readonly>
+                    </div>
+
+                    <div class="infos_sortie">
+                        <label for="infos">Inscription et infos :</label>
+                        <textarea id="infos" name="infos"  readonly>  {{ sortie.infosSortie }} </textarea>
+                    </div>
+
+                </div>
+               <!--
+                <div class="form_right_afficherSortie">
+                    <div class="campus_sortie">
+                        <label for="">Campus :</label>
+                        <input type="text" id="campus-sortie" name="campus-sortie" value="{{ sortie.campus }}" readonly>
+                    </div>
+                </div>-->
+            </div>
+
+        </main>
+    {% endblock %}
+{% endblock %}
