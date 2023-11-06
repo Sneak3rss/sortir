@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MyProfilController extends AbstractController
 {
-    #[Route('/myProfil')]
+    #[Route('/myProfil', name: 'app_myprofil')]
     public function myProfil(): Response
     {
         $user = new User();

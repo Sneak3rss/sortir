@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+
+header
+{
+    padding: 15px 20px 15px 20px;
+}
+
+.navbar
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .menu a
+{
+    padding: 10px;
+    color: #000;
+    text-decoration: none;
+}
+
+main
+{
+    padding: 10px;
+    resize: none;
+}
+
+main .title_afficherSortie
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
