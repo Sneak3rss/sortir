@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <a href="{{ path('app_account_create') }}">Ajouter un compte</a>
+    <h1>Liste des utilisateur·rices</h1>
+
+    <table>
+        <tr>
+            <th>id</th>
+            <th>nickname</th>
+            <th>name</th>
+            <th>lastname</th>
+            <th>phone_number</th>
+            <th>email</th>
+            <th>password</th>
+            <th>fk_campus</th>
+            <th>picture</th>
+            <th>fk_rank</th>
+        </tr>
+        {% for account in accounts %}
+            <tr>
+                <th>{{ account.id }}</th>
+                <th>{{ account.nickname }}</th>
+                <th>{{ account.name }}</th>
+                <th>{{ account.lastname }}</th>
+                <th> - - - </th>
+                <th>{{ account.email }}</th>
+                <th>{{ account.password }}</th>
+                <th> - - - </th>
+                <th>{{ account.picture }}</th>
+                <th> - - - </th>
+            </tr>
+        {% endfor %}
+    </table>
+
+
+{% endblock %}
+{% block title %}
+
+    Les utilisateur·rice | {{ parent() }}
+{% endblock %}

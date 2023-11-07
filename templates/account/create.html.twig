@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1>Ajouter un·e utilisateur·rice</h1>
+
+    <div>
+        {{ form_start(accountForm)}}
+        {{ form_widget(accountForm) }}
+        <button>Ajouter</button>
+        {{ form_end(accountForm)}}
+    </div>
+
+{% endblock %}
+{% block title %}
+    Ajouter un·e utilisateur·rice | {{ parent() }}
+{% endblock %}
